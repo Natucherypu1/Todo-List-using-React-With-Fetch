@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { TodoForm } from "./todoForm.jsx";
 import { TodoList } from "./todoList.jsx";
 import { TodoCounter } from "./todoCounter.jsx";
@@ -9,7 +9,16 @@ import rigoImage from "../../img/rigo-baby.jpg";
 //create your first component
 const Home = () => {
   const [list, setList] = useState(["take out the trash", "make the bed"]);
-  return (
+  const backendUrl = "https://assets.breatheco.de/apis/fake/todos/user/natucherypu1"
+  function getList () { 
+    fetch(backendUrl)
+     .then(response => response.json()).then(data=> console.log(data))
+  }
+  useEffect(() => {
+			getList()
+  }, []);
+
+    return (
     <div className="main">
       
         <h1 className="text-center title">Todos</h1>
