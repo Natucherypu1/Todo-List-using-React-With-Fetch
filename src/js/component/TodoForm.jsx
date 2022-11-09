@@ -6,8 +6,8 @@ export function TodoForm(props) {
   const [input, setInput] = useState("");
   const handleKeyPress = (e)=>{
     if (e.key === "Enter" && input!=="") {
-        
-      props.setList(props.list.concat(input))
+        props.addItem(input)
+       
       setInput("")
      } }
   return (

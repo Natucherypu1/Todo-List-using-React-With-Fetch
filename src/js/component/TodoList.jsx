@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export function TodoList(props) {
   const deleteTodo = (index) => {
-    props.setList(props.list.filter((item, i) => index != i));
+    props.deleteItem(index)
   };
 
   return (
@@ -19,7 +19,7 @@ export function TodoList(props) {
             }
             key={index}
           >
-            {item}
+            {item.label}
             <i
            
               id={"ico" + index}
